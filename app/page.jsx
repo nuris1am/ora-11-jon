@@ -65,12 +65,12 @@ const pageMarkup = `
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <div class="stat-num">৩০+</div>
+          <div class="stat-num">০৫+</div>
           <div class="stat-label">বছরের অভিজ্ঞতা</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <div class="stat-num">৫০+</div>
+          <div class="stat-num">১০+</div>
           <div class="stat-label">প্রকল্প সম্পন্ন</div>
         </div>
       </div>
@@ -103,7 +103,7 @@ const pageMarkup = `
   <div class="about-inner">
     <div class="about-text">
       <div class="section-label">আমাদের সম্পর্কে</div>
-      <h2 class="section-title">আমরা কারা এবং কী করি?</h2>
+      <h2 class="section-title">আমরা কারা এবং কী করি ?</h2>
       <p class="section-sub">
         ওরা এগারো জন সমিতি ২০২১ সাল থেকে স্থানীয় জনগণের জন্য কাজ করে আসছে। আমরা বিশ্বাস করি একতাবদ্ধ হলে যেকোনো সমস্যার সমাধান সম্ভব।
       </p>
@@ -177,10 +177,10 @@ const pageMarkup = `
     </div>
 
     <div class="members-grid">
-      <div class="member-card reveal"><div class="member-avatar">আ</div><div class="member-name">আব্দুল করিম</div><div class="member-role">সভাপতি</div><div class="member-info">সংগঠনের প্রতিষ্ঠাতা সদস্য। ৩০ বছরের বেশি সময় ধরে সমাজসেবায় নিয়োজিত।</div></div>
-      <div class="member-card reveal"><div class="member-avatar">মো</div><div class="member-name">মোহাম্মদ আলী</div><div class="member-role">সহ-সভাপতি</div><div class="member-info">কৃষি উন্নয়ন বিভাগের দায়িত্বে নিয়োজিত।</div></div>
-      <div class="member-card reveal"><div class="member-avatar">র</div><div class="member-name">রহিম উদ্দিন</div><div class="member-role">সাধারণ সম্পাদক</div><div class="member-info">সাংগঠনিক কার্যক্রম পরিচালনায় দক্ষ এবং অভিজ্ঞ।</div></div>
-      <div class="member-card reveal"><div class="member-avatar">ক</div><div class="member-name">করিম হোসেন</div><div class="member-role">কোষাধ্যক্ষ</div><div class="member-info">আর্থিক ব্যবস্থাপনা ও হিসাব-নিকাশের দায়িত্বে।</div></div>
+      <div class="member-card reveal"><div class="member-avatar">A</div><div class="member-name">Ayub Mahmud </div><div class="member-role">সভাপতি</div><div class="member-info">সংগঠনের প্রতিষ্ঠাতা সদস্য। ৩০ বছরের বেশি সময় ধরে সমাজসেবায় নিয়োজিত।</div></div>
+      <div class="member-card reveal"><div class="member-avatar">N</div><div class="member-name">Nazmul Huda</div><div class="member-role">সহ-সভাপতি</div><div class="member-info">কৃষি উন্নয়ন বিভাগের দায়িত্বে নিয়োজিত।</div></div>
+      <div class="member-card reveal"><div class="member-avatar">P</div><div class="member-name">Palash Mulla</div><div class="member-role">সাধারণ সম্পাদক</div><div class="member-info">সাংগঠনিক কার্যক্রম পরিচালনায় দক্ষ এবং অভিজ্ঞ।</div></div>
+      <div class="member-card reveal"><div class="member-avatar">A</div><div class="member-name">Ashik Paul</div><div class="member-role">কোষাধ্যক্ষ</div><div class="member-info">আর্থিক ব্যবস্থাপনা ও হিসাব-নিকাশের দায়িত্বে।</div></div>
     </div>
 
     <div class="members-cta reveal">
@@ -209,8 +209,8 @@ const pageMarkup = `
       <p class="section-sub">যেকোনো প্রশ্ন বা সহায়তার জন্য আমরা সর্বদা আপনার পাশে আছি।</p>
 
       <div class="contact-info-cards">
-        <div class="contact-info-card reveal"><div class="contact-icon">📧</div><div><div class="contact-info-label">ইমেইল</div><div class="contact-info-val">info@oraagaro.com</div></div></div>
-        <div class="contact-info-card reveal"><div class="contact-icon">📞</div><div><div class="contact-info-label">ফোন</div><div class="contact-info-val">01700-000000</div></div></div>
+        <div class="contact-info-card reveal"><div class="contact-icon">📧</div><div><div class="contact-info-label">ইমেইল</div><div class="contact-info-val">ora11jon21@gmail.com</div></div></div>
+        <div class="contact-info-card reveal"><div class="contact-icon">📞</div><div><div class="contact-info-label">ফোন</div><div class="contact-info-val">01715987336</div></div></div>
         <div class="contact-info-card reveal"><div class="contact-icon">📍</div><div><div class="contact-info-label">ঠিকানা</div><div class="contact-info-val">ঢাকা, বাংলাদেশ</div></div></div>
         <div class="contact-info-card reveal"><div class="contact-icon">🕐</div><div><div class="contact-info-label">কার্যঘণ্টা</div><div class="contact-info-val">শনি–বৃহস্পতি, সকাল ৯টা – বিকাল ৫টা</div></div></div>
       </div>
@@ -272,8 +272,8 @@ const pageMarkup = `
       <div class="footer-col">
         <h4>যোগাযোগ</h4>
         <ul class="footer-links">
-          <li><a href="mailto:info@oraagaro.com">📧 info@oraagaro.com</a></li>
-          <li><a href="tel:+8801700000000">📞 01700-000000</a></li>
+          <li><a href="mailto:ora11jon21@gmail.com">📧 ora11jon21@gmail.com</a></li>
+          <li><a href="tel:+8801715987336">📞 01715-987336</a></li>
           <li><a href="https://maps.google.com/?q=Dhaka,Bangladesh" target="_blank" rel="noopener noreferrer">📍 ঢাকা, বাংলাদেশ</a></li>
           <li><a href="#contact">🕐 শনি–বৃহস্পতি</a></li>
         </ul>
