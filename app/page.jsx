@@ -238,7 +238,7 @@ const pageMarkup = `
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="nav-logo"><div class="nav-logo-icon">ও</div><div class="nav-logo-text">ওরা এগারো জন সমিতি<span>সমবায় সমিতি</span></div></div>
-        <p>১৯৯৫ সাল থেকে আমরা স্থানীয় জনগণের জন্য নিরলসভাবে কাজ করে আসছি। সহযোগিতা ও সংহতিই আমাদের শক্তি।</p>
+        <p>২০২১ সাল থেকে আমরা স্থানীয় জনগণের জন্য নিরলসভাবে কাজ করে আসছি। সহযোগিতা ও সংহতিই আমাদের শক্তি।</p>
         <div class="social-links">
           <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ফেসবুক">ফ</a>
           <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="লিংকডইন">ইন</a>
