@@ -11,64 +11,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
-.headerLeft {
-  flex: 1;
-  min-width: 200px;
-}
-
-.headerLeft h1 {
+.header h1 {
   color: #333;
   font-size: 32px;
   font-weight: bold;
-  margin: 0 0 8px 0;
-}
-
-.userInfo {
-  color: #666;
-  font-size: 14px;
   margin: 0;
-}
-
-.headerRight {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.adminLink {
-  padding: 10px 20px;
-  background-color: #ffc107;
-  color: #333;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color 0.3s;
-  display: inline-block;
-}
-
-.adminLink:hover {
-  background-color: #ffb300;
-}
-
-.logoutBtn {
-  padding: 10px 20px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.logoutBtn:hover {
-  background-color: #c82333;
 }
 
 .loading,
@@ -79,7 +28,6 @@
   border-radius: 8px;
   color: #666;
   font-size: 16px;
-  margin: 20px 0;
 }
 
 .error {
@@ -88,7 +36,6 @@
   border: 1px solid #f5c6cb;
 }
 
-/* Form Section */
 .formSection {
   background: white;
   padding: 30px;
@@ -123,8 +70,7 @@
   font-size: 14px;
 }
 
-.formGroup input,
-.formGroup select {
+.formGroup input {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -132,56 +78,35 @@
   transition: border-color 0.3s;
 }
 
-.formGroup input:focus,
-.formGroup select:focus {
+.formGroup input:focus {
   outline: none;
   border-color: #d4af37;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
-.buttonGroup {
+.submitBtn {
   grid-column: 1 / -1;
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.buttonGroup button {
   padding: 12px 24px;
+  background-color: #d4af37;
+  color: #333;
   border: none;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
-.buttonGroup button[type="submit"] {
-  background-color: #d4af37;
-  color: #333;
-  flex: 1;
-}
-
-.buttonGroup button[type="submit"]:hover:not(:disabled) {
+.submitBtn:hover:not(:disabled) {
   background-color: #c9a424;
 }
 
-.buttonGroup button[type="submit"]:disabled {
+.submitBtn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.cancelBtn {
-  background-color: #6c757d !important;
-  color: white !important;
-  min-width: 100px;
-}
-
-.cancelBtn:hover {
-  background-color: #5a6268 !important;
-}
-
-/* List Section */
 .listSection {
   background: white;
   padding: 30px;
@@ -232,43 +157,53 @@
   background-color: #f9f9f9;
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+.role {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
 }
 
-.editBtn,
+.role.main-admin {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.roleMain {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.roleSub {
+  background-color: #17a2b8;
+  color: white;
+}
+
 .deleteBtn {
   padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
   border: none;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
-  white-space: nowrap;
-}
-
-.editBtn {
-  background-color: #0066cc;
-  color: white;
-}
-
-.editBtn:hover {
-  background-color: #0052a3;
-}
-
-.deleteBtn {
-  background-color: #dc3545;
-  color: white;
 }
 
 .deleteBtn:hover {
   background-color: #c82333;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .container {
     padding: 20px 10px;
@@ -278,14 +213,6 @@
     grid-template-columns: 1fr;
   }
 
-  .buttonGroup {
-    flex-direction: column;
-  }
-
-  .buttonGroup button {
-    width: 100%;
-  }
-
   .table {
     font-size: 12px;
   }
@@ -293,14 +220,5 @@
   .table th,
   .table td {
     padding: 8px 10px;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-
-  .editBtn,
-  .deleteBtn {
-    width: 100%;
   }
 }

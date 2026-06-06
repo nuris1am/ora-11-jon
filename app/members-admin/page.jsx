@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./members.module.css";
 
 export default function MembersAdmin() {
+  const router = useRouter();
   const [members, setMembers] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -14,11 +16,45 @@ export default function MembersAdmin() {
   });
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [userRole, setUserRole] = useState(null);
+  const [username, setUsername] = useState(null);
 
-  // Fetch members
   useEffect(() => {
-    fetchMembers();
+    checkAuth();
   }, []);
+
+  const checkAuth = async () => {
+    try {
+      const response = await fetch("/api/auth/check");
+      if (response.ok) {
+        const data = await response.json();
+        setAuthenticated(true);
+        setUserRole(data.role);
+        setUsername(data.username);
+        fetchMembers();
+      } else {
+        router.push("/login");
+      }
+    } catch (error) {
+      console.error("Auth check error:", error);
+      router.push("/login");
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    if (confirm("আপনি কি লগআউট করতে চান?")) {
+      try {
+        await fetch("/api/auth/logout", { method: "POST" });
+        router.push("/login");
+      } catch (error) {
+        console.error("Logout error:", error);
+      }
+    }
+  };
 
   const fetchMembers = async () => {
     try {
@@ -44,7 +80,6 @@ export default function MembersAdmin() {
 
     try {
       if (editingId) {
-        // Update existing member
         const response = await fetch("/api/members", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -64,7 +99,6 @@ export default function MembersAdmin() {
           fetchMembers();
         }
       } else {
-        // Add new member
         const response = await fetch("/api/members", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -133,11 +167,35 @@ export default function MembersAdmin() {
     });
   };
 
+  if (authLoading) {
+    return <div className={styles.loading}>লোড হচ্ছে...</div>;
+  }
+
+  if (!authenticated) {
+    return <div className={styles.error}>অনুমতি অস্বীকৃত। লগইন করুন।</div>;
+  }
+
   return (
     <div className={styles.container}>
-      <h1>সদস্য ব্যবস্থাপনা</h1>
+      <div className={styles.header}>
+        <div className={styles.headerLeft}>
+          <h1>সদস্য ব্যবস্থাপনা</h1>
+          <p className={styles.userInfo}>
+            {username} - {userRole === "main-admin" ? "মূল অ্যাডমিন" : "সাব অ্যাডমিন"}
+          </p>
+        </div>
+        <div className={styles.headerRight}>
+          {userRole === "main-admin" && (
+            <a href="/admins-management" className={styles.adminLink}>
+              অ্যাডমিন ব্যবস্থাপনা
+            </a>
+          )}
+          <button onClick={handleLogout} className={styles.logoutBtn}>
+            লগআউট
+          </button>
+        </div>
+      </div>
 
-      {/* Form */}
       <div className={styles.formSection}>
         <h2>{editingId ? "সদস্য সম্পাদন করুন" : "নতুন সদস্য যোগ করুন"}</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -215,7 +273,6 @@ export default function MembersAdmin() {
         </form>
       </div>
 
-      {/* Members List */}
       <div className={styles.listSection}>
         <h2>সদস্যদের তালিকা ({members.length})</h2>
         <div className={styles.tableWrapper}>
