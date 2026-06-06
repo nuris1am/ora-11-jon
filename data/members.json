@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "MD NUR ISLAM",
+    "share": "4",
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Ayub Mahmud",
+    "share": "2",
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "BINOKDIA",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "Nazmul Huda",
+    "share": "2",
+    "address": "NARANDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "NARANDIA",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "name": "ASIF",
+    "share": "2",
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "USA",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "name": "Ashik Paul",
+    "share": "2",
+    "address": "XXX",
+    "membershipType": "GENERAL",
+    "workingLocation": "XXX",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "name": "Palash Mulla",
+    "share": "2",
+    "address": "XXX",
+    "membershipType": "GENERAL",
+    "workingLocation": "XXX",
+    "createdAt": "2024-06-06T00:00:00.000Z"
+  }
+]
