@@ -7,10 +7,10 @@
     "createdAt": "2024-06-06T00:00:00.000Z"
   },
   {
-    "id": 2,
-    "username": "tony",
-    "password": "qdmin",
+    "id": 3,
+    "username": "nur",
+    "password": "admin123",
     "role": "sub-admin",
-    "createdAt": "2026-06-06T05:44:48.183Z"
+    "createdAt": "2026-06-06T05:51:27.445Z"
   }
 ]
