@@ -36,7 +36,6 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message);
         router.push("/members-admin");
       } else {
         setError(data.message);

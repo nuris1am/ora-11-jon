@@ -15,6 +15,7 @@ export default function AdminsPage() {
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     checkAuth();
@@ -74,19 +75,37 @@ export default function AdminsPage() {
         return;
       }
 
-      const response = await fetch("/api/admins", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      if (editingId) {
+        const response = await fetch("/api/admins", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: editingId, ...formData }),
+        });
 
-      if (response.ok) {
-        alert("নতুন অ্যাডমিন তৈরি হয়েছে!");
-        setFormData({ username: "", password: "" });
-        fetchAdmins();
+        if (response.ok) {
+          alert("অ্যাডমিন আপডেট হয়েছে!");
+          setEditingId(null);
+          setFormData({ username: "", password: "" });
+          fetchAdmins();
+        } else {
+          const error = await response.json();
+          alert(error.error || "আপডেটে ব্যর্থ");
+        }
       } else {
-        const error = await response.json();
-        alert(error.error || "তৈরিতে ব্যর্থ");
+        const response = await fetch("/api/admins", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          alert("নতুন অ্যাডমিন তৈরি হয়েছে!");
+          setFormData({ username: "", password: "" });
+          fetchAdmins();
+        } else {
+          const error = await response.json();
+          alert(error.error || "তৈরিতে ব্যর্থ");
+        }
       }
     } catch (error) {
       console.error("Error:", error);
@@ -94,6 +113,20 @@ export default function AdminsPage() {
     } finally {
       setSubmitLoading(false);
     }
+  };
+
+  const handleEditAdmin = (admin) => {
+    setFormData({
+      username: admin.username,
+      password: admin.password,
+    });
+    setEditingId(admin.id);
+    window.scrollTo(0, 0);
+  };
+
+  const handleCancel = () => {
+    setEditingId(null);
+    setFormData({ username: "", password: "" });
   };
 
   const handleDeleteAdmin = async (id) => {
@@ -134,7 +167,7 @@ export default function AdminsPage() {
       </div>
 
       <div className={styles.formSection}>
-        <h2>নতুন অ্যাডমিন যোগ করুন</h2>
+        <h2>{editingId ? "অ্যাডমিন সম্পাদনা করুন" : "নতুন অ্যাডমিন যোগ করুন"}</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <label>ব্যবহারকারীর নাম *</label>
@@ -160,9 +193,31 @@ export default function AdminsPage() {
             />
           </div>
 
-          <button type="submit" disabled={submitLoading} className={styles.submitBtn}>
-            {submitLoading ? "যোগ করছি..." : "নতুন অ্যাডমিন যোগ করুন"}
-          </button>
+          <div style={{ display: "flex", gap: "10px" }}>
+            <button type="submit" disabled={submitLoading} className={styles.submitBtn}>
+              {submitLoading ? (editingId ? "আপডেট করছি..." : "যোগ করছি...") : (editingId ? "আপডেট করুন" : "নতুন অ্যাডমিন যোগ করুন")}
+            </button>
+            {editingId && (
+              <button
+                type="button"
+                onClick={handleCancel}
+                className={styles.cancelBtn}
+                style={{
+                  padding: "12px 24px",
+                  background: "#6b7280",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "4px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  flex: 1,
+                }}
+              >
+                বাতিল করুন
+              </button>
+            )}
+          </div>
         </form>
       </div>
 
@@ -197,7 +252,22 @@ export default function AdminsPage() {
                       </span>
                     </td>
                     <td>{new Date(admin.createdAt).toLocaleDateString("bn-BD")}</td>
-                    <td>
+                    <td style={{ display: "flex", gap: "8px" }}>
+                      <button
+                        onClick={() => handleEditAdmin(admin)}
+                        style={{
+                          padding: "6px 12px",
+                          background: "#2563eb",
+                          color: "white",
+                          border: "none",
+                          borderRadius: "4px",
+                          fontSize: "12px",
+                          fontWeight: "600",
+                          cursor: "pointer",
+                        }}
+                      >
+                        সম্পাদনা
+                      </button>
                       {admin.role !== "main-admin" && (
                         <button
                           onClick={() => handleDeleteAdmin(admin.id)}

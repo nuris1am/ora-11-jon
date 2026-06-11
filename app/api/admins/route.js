@@ -68,6 +68,32 @@ export async function POST(request) {
   }
 }
 
+export async function PUT(request) {
+  try {
+    const { id, username, password } = await request.json();
+    let admins = readAdmins();
+
+    const index = admins.findIndex(a => a.id === parseInt(id));
+    if (index === -1) {
+      return Response.json({ error: 'Admin not found' }, { status: 404 });
+    }
+
+    // Check if new username already exists (excluding current admin)
+    if (username && admins.some((a, idx) => idx !== index && a.username === username)) {
+      return Response.json({ error: 'Username already exists' }, { status: 400 });
+    }
+
+    if (username) admins[index].username = username;
+    if (password) admins[index].password = password;
+
+    writeAdmins(admins);
+    return Response.json(admins[index]);
+  } catch (error) {
+    console.error('Error updating admin:', error);
+    return Response.json({ error: 'Failed to update admin' }, { status: 500 });
+  }
+}
+
 export async function DELETE(request) {
   try {
     const { id } = await request.json();
