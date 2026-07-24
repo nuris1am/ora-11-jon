@@ -24,7 +24,7 @@ const pageMarkup = `
   </ul>
 
   <div class="nav-actions">
-    <button class="btn-nav btn-nav-outline">লগইন</button>
+    <a href="/financial-dashboard" class="btn-nav btn-nav-outline" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">লগইন</a>
     <button class="btn-nav btn-nav-gold">যোগ দিন</button>
   </div>
 
@@ -40,6 +40,7 @@ const pageMarkup = `
   <a href="#services" onclick="toggleMobile()">🌿 সেবা</a>
   <a href="#members" onclick="toggleMobile()">👥 সদস্য</a>
   <a href="#contact" onclick="toggleMobile()">📞 যোগাযোগ</a>
+  <a href="/financial-dashboard" onclick="toggleMobile()">🔐 লগইন / ফাইন্যান্স পোর্টাল</a>
 </div>
 
 <section class="hero" id="home">

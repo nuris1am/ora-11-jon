@@ -2,55 +2,161 @@
   {
     "id": 1,
     "name": "MD NUR ISLAM",
-    "share": "4",
+    "share": 4,
     "address": "CHATO LAXMONDIA",
-    "membershipType": "GENERAL",
+    "membershipType": "FOUNDER",
     "workingLocation": "DHAKA",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "phone": "01700000001",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": 2,
     "name": "Ayub Mahmud",
-    "share": "2",
+    "share": 2,
     "address": "CHATO LAXMONDIA",
     "membershipType": "GENERAL",
     "workingLocation": "BINOKDIA",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "phone": "01700000002",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": 3,
     "name": "Nazmul Huda",
-    "share": "2",
+    "share": 2,
     "address": "NARANDIA",
     "membershipType": "GENERAL",
     "workingLocation": "NARANDIA",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "phone": "01700000003",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": 4,
     "name": "ASIF",
-    "share": "2",
+    "share": 2,
     "address": "CHATO LAXMONDIA",
     "membershipType": "GENERAL",
     "workingLocation": "USA",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "phone": "01700000004",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": 5,
     "name": "Ashik Paul",
-    "share": "2",
-    "address": "XXX",
+    "share": 2,
+    "address": "CHATO LAXMONDIA",
     "membershipType": "GENERAL",
-    "workingLocation": "XXX",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "workingLocation": "DHAKA",
+    "phone": "01700000005",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   },
   {
     "id": 6,
     "name": "Palash Mulla",
-    "share": "2",
-    "address": "XXX",
+    "share": 2,
+    "address": "CHATO LAXMONDIA",
     "membershipType": "GENERAL",
-    "workingLocation": "XXX",
-    "createdAt": "2024-06-06T00:00:00.000Z"
+    "workingLocation": "DHAKA",
+    "phone": "01700000006",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "name": "Shahin Alam",
+    "share": 1,
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000007",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "name": "Jahangir Hossain",
+    "share": 1,
+    "address": "NARANDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "FARIDPUR",
+    "phone": "01700000008",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "name": "Tariqul Islam",
+    "share": 1,
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000009",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "name": "Sumon Ahmed",
+    "share": 1,
+    "address": "BINOKDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000010",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "name": "Rashedul Hasan",
+    "share": 1,
+    "address": "NARANDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000011",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "name": "Masud Rana",
+    "share": 1,
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000012",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "name": "Tanvir Hossain",
+    "share": 1,
+    "address": "BINOKDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000013",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "name": "Shakil Ahmed",
+    "share": 1,
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "FARIDPUR",
+    "phone": "01700000014",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 15,
+    "name": "Al Amin",
+    "share": 1,
+    "address": "NARANDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000015",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 16,
+    "name": "Kamrul Islam",
+    "share": 1,
+    "address": "CHATO LAXMONDIA",
+    "membershipType": "GENERAL",
+    "workingLocation": "DHAKA",
+    "phone": "01700000016",
+    "createdAt": "2024-01-01T00:00:00.000Z"
   }
 ]

@@ -1,0 +1,311 @@
+{
+  "payments": [
+    {
+      "id": "PAY-2026-07-1",
+      "memberId": 1,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 4000,
+      "paymentDate": "2026-07-05",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-2",
+      "memberId": 2,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 2000,
+      "paymentDate": "2026-07-08",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-3",
+      "memberId": 3,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 2100,
+      "paymentDate": "2026-07-14",
+      "status": "PAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 100,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-4",
+      "memberId": 4,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 0,
+      "paymentDate": null,
+      "status": "UNPAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 100,
+      "unpaidConsecutiveMonths": 1,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-5",
+      "memberId": 5,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 2000,
+      "paymentDate": "2026-07-09",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-6",
+      "memberId": 6,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 0,
+      "paymentDate": null,
+      "status": "UNPAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 100,
+      "unpaidConsecutiveMonths": 3,
+      "isAccountFrozen": true,
+      "reopeningFee": 100
+    },
+    {
+      "id": "PAY-2026-07-7",
+      "memberId": 7,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-02",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-8",
+      "memberId": 8,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-10",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-9",
+      "memberId": 9,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 0,
+      "paymentDate": null,
+      "status": "UNPAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 50,
+      "unpaidConsecutiveMonths": 1,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-10",
+      "memberId": 10,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-04",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-11",
+      "memberId": 11,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-07",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-12",
+      "memberId": 12,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1050,
+      "paymentDate": "2026-07-12",
+      "status": "PAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 50,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-13",
+      "memberId": 13,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-06",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-14",
+      "memberId": 14,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-09",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-15",
+      "memberId": 15,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 1000,
+      "paymentDate": "2026-07-01",
+      "status": "PAID",
+      "penaltyApplied": false,
+      "penaltyAmount": 0,
+      "unpaidConsecutiveMonths": 0,
+      "isAccountFrozen": false
+    },
+    {
+      "id": "PAY-2026-07-16",
+      "memberId": 16,
+      "year": 2026,
+      "month": 7,
+      "amountPaid": 0,
+      "paymentDate": null,
+      "status": "UNPAID",
+      "penaltyApplied": true,
+      "penaltyAmount": 50,
+      "unpaidConsecutiveMonths": 1,
+      "isAccountFrozen": false
+    }
+  ],
+  "investments": [
+    {
+      "id": "INV-1",
+      "title": "Local Agricultural Land Investment",
+      "year": 2026,
+      "month": 3,
+      "investedAmount": 150000,
+      "uninvestedAmount": 162000,
+      "expectedReturn": 25000,
+      "actualReturn": 28000,
+      "status": "ACTIVE",
+      "date": "2026-03-15"
+    },
+    {
+      "id": "INV-2",
+      "title": "Cooperative Fishery Project",
+      "year": 2025,
+      "month": 6,
+      "investedAmount": 100000,
+      "uninvestedAmount": 200000,
+      "expectedReturn": 15000,
+      "actualReturn": 18500,
+      "status": "COMPLETED",
+      "date": "2025-06-10"
+    }
+  ],
+  "profitLoss": [
+    {
+      "id": "PL-1",
+      "year": 2026,
+      "month": 6,
+      "type": "PROFIT",
+      "category": "Fishery Dividend",
+      "amount": 18500,
+      "description": "Profit share received from fishery project",
+      "date": "2026-06-20"
+    },
+    {
+      "id": "PL-2",
+      "year": 2026,
+      "month": 4,
+      "type": "LOSS",
+      "category": "Equipment Repair",
+      "amount": 2500,
+      "description": "Storage space maintenance cost",
+      "date": "2026-04-12"
+    },
+    {
+      "id": "PL-3",
+      "year": 2025,
+      "month": 12,
+      "type": "PROFIT",
+      "category": "Land Rent Income",
+      "amount": 35000,
+      "description": "Annual land rental profit",
+      "date": "2025-12-28"
+    }
+  ],
+  "notices": [
+    {
+      "id": "NOT-1",
+      "title": "Monthly Meeting & Monthly Savings Collection Reminder",
+      "content": "Assalamu Alaikum all members of Ora 11 Jon. Please ensure your monthly share payments are completed before the 10th of July to avoid late penalty charges (50 Tk/share). Monthly meeting will be held on July 12.",
+      "category": "URGENT",
+      "date": "2026-07-01T10:00:00.000Z",
+      "author": "MD NUR ISLAM (President)"
+    },
+    {
+      "id": "NOT-2",
+      "title": "Account Freeze & Reopening Policy Update",
+      "content": "Members are reminded that consecutive non-payment for 3 months leads to temporary account closure. A 50 BDT/share reopening fee applies, and penalty increases to 100 BDT/share from the 4th month.",
+      "category": "FINANCIAL",
+      "date": "2026-06-15T14:30:00.000Z",
+      "author": "Executive Committee"
+    }
+  ],
+  "charity": [
+    {
+      "id": "CHR-1",
+      "year": 2026,
+      "title": "Local School Supplies Donation",
+      "allocatedAmount": 15000,
+      "disbursedAmount": 12000,
+      "beneficiary": "Laxmondia Primary School Students",
+      "date": "2026-05-10",
+      "notes": "Distributed books, pens, and bags to 30 underprivileged students."
+    },
+    {
+      "id": "CHR-2",
+      "year": 2025,
+      "title": "Emergency Medical Assistance Fund",
+      "allocatedAmount": 20000,
+      "disbursedAmount": 20000,
+      "beneficiary": "Community Health Relief",
+      "date": "2025-11-20",
+      "notes": "Medical treatment fund support."
+    }
+  ]
+}
