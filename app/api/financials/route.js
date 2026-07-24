@@ -74,29 +74,37 @@ export async function POST(request) {
     }
 
     if (action === 'IMPORT_PAYMENTS_EXCEL') {
-      const { records, month, year } = payload;
+      const { records = [], month, year } = payload;
       let importedCount = 0;
 
       records.forEach(row => {
-        // Flexible field matching for Excel headers
-        const memberId = row['Member ID'] || row['memberId'] || row['Sl No'];
-        const memberName = row['Member Name'] || row['name'] || row['Member'];
-        const status = (row['Payment Status'] || row['status'] || 'PAID').toString().toUpperCase().includes('PAID') ? 'PAID' : 'UNPAID';
-        const rawDate = row['Payment Date'] || row['date'] || null;
+        // Safe field extraction across various Excel header conventions
+        const memberId = row['Member ID'] || row['memberId'] || row['Sl No'] || row['ID'];
+        const memberName = row['Member Name'] || row['name'] || row['Member'] || row['সদস্যের নাম'];
+        const rawStatus = (row['Payment Status'] || row['status'] || row['Status'] || row['স্ট্যাটাস'] || 'PAID').toString().toUpperCase();
+        const status = rawStatus.includes('PAID') && !rawStatus.includes('UNPAID') ? 'PAID' : (rawStatus.includes('UNPAID') ? 'UNPAID' : 'PAID');
+        
+        const rawDate = row['Payment Date'] || row['paymentDate'] || row['date'] || row['পরিশোধের তারিখ'] || null;
         let paymentDate = null;
-        if (status === 'PAID' && rawDate) {
+        if (status === 'PAID' && rawDate && rawDate !== 'Not Paid Yet' && rawDate !== 'N/A') {
           try {
-            paymentDate = new Date(rawDate).toISOString().split('T')[0];
+            const d = new Date(rawDate);
+            if (!isNaN(d.getTime())) {
+              paymentDate = d.toISOString().split('T')[0];
+            } else {
+              paymentDate = new Date().toISOString().split('T')[0];
+            }
           } catch (e) {
             paymentDate = new Date().toISOString().split('T')[0];
           }
         }
 
-        // Find member by ID or Name
-        const member = members.find(m => 
-          (memberId && m.id === Number(memberId)) || 
-          (memberName && m.name.toLowerCase().trim() === memberName.toString().toLowerCase().trim())
-        );
+        // Find matching member safely
+        const member = members.find(m => {
+          if (memberId && Number(m.id) === Number(memberId)) return true;
+          if (memberName && m.name && m.name.toString().toLowerCase().trim() === memberName.toString().toLowerCase().trim()) return true;
+          return false;
+        });
 
         if (member) {
           const calc = calculatePenaltyAndStatus({
@@ -108,7 +116,8 @@ export async function POST(request) {
 
           const existingIndex = financials.payments.findIndex(p => p.memberId === member.id && p.month === Number(month) && p.year === Number(year));
           
-          const amountPaid = Number(row['Total Amount Paid (BDT)'] || row['amountPaid'] || calc.monthlyPayable);
+          const rawAmount = row['Total Amount Paid (BDT)'] || row['amountPaid'] || row['Amount Paid'] || row['Amount'];
+          const amountPaid = !isNaN(Number(rawAmount)) && Number(rawAmount) > 0 ? Number(rawAmount) : calc.monthlyPayable;
 
           const updatedPayment = {
             id: existingIndex >= 0 ? financials.payments[existingIndex].id : `PAY-${year}-${month}-${member.id}`,
