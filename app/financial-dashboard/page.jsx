@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { 
   DollarSign, Users, PieChart, ShieldAlert, FileSpreadsheet, 
   Bell, Heart, PlusCircle, CheckCircle, XCircle, AlertTriangle, 
-  Calendar, Filter, RefreshCw, Layers, TrendingUp, TrendingDown, ArrowLeft
+  Calendar, Filter, RefreshCw, Layers, TrendingUp, TrendingDown, ArrowLeft, Upload
 } from 'lucide-react';
-import { exportToExcel, formatPaymentsForExcel, formatSummaryForExcel } from '../../lib/excel-export';
+import { exportToExcel, parseExcelFile, formatPaymentsForExcel, formatSummaryForExcel } from '../../lib/excel-export';
 import { MONTHLY_RATE_PER_SHARE } from '../../lib/financial-calculator';
 
 export default function FinancialDashboardPage() {
@@ -32,6 +32,11 @@ export default function FinancialDashboardPage() {
 
   const [showCharityModal, setShowCharityModal] = useState(false);
   const [charityForm, setCharityForm] = useState({ title: '', allocatedAmount: '', disbursedAmount: '', beneficiary: '', notes: '' });
+
+  // Excel Import State
+  const [showImportExcelModal, setShowImportExcelModal] = useState(false);
+  const [importedExcelData, setImportedExcelData] = useState([]);
+  const [isImporting, setIsImporting] = useState(false);
 
   // Fetch initial data
   const fetchData = async () => {
@@ -131,6 +136,55 @@ export default function FinancialDashboardPage() {
   const handleExportSummaryExcel = () => {
     const formatted = formatSummaryForExcel(dashboard);
     exportToExcel(formatted, `Ora_11_Jon_Financial_Summary_${selectedYear}`, 'Financial Summary');
+  };
+
+  // Excel Import Handler
+  const handleFileSelect = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      const json = await parseExcelFile(file);
+      if (json.length === 0) {
+        alert('অ্যাটাচ করা এক্সেল ফাইলে কোনো ডেটা পাওয়া যায়নি');
+        return;
+      }
+      setImportedExcelData(json);
+      setShowImportExcelModal(true);
+    } catch (err) {
+      alert('এক্সেল ফাইল পড়তে সমস্যা হয়েছে: ' + err.message);
+    }
+  };
+
+  const handleConfirmImport = async () => {
+    if (importedExcelData.length === 0) return;
+    setIsImporting(true);
+    try {
+      const res = await fetch('/api/financials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'IMPORT_PAYMENTS_EXCEL',
+          payload: {
+            records: importedExcelData,
+            month: selectedMonth,
+            year: selectedYear
+          }
+        })
+      });
+      const json = await res.json();
+      if (json.success) {
+        alert(`সফলভাবে ${json.importedCount} টি সদস্যের পেমেন্ট ডেটা এক্সেল থেকে ইমপোর্ট করা হয়েছে!`);
+        setShowImportExcelModal(false);
+        setImportedExcelData([]);
+        fetchData();
+      } else {
+        alert(json.message || 'Import failed');
+      }
+    } catch (err) {
+      alert('Import error: ' + err.message);
+    } finally {
+      setIsImporting(false);
+    }
   };
 
   // Payment Submit
@@ -372,6 +426,13 @@ export default function FinancialDashboardPage() {
               </div>
 
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                {/* Excel Import Button */}
+                <label style={{ background: '#27ae60', color: '#fff', padding: '10px 18px', borderRadius: '8px', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+                  <Upload size={18} /> Excel থেকে ডাটা ইমপোর্ট করুন (.xlsx)
+                  <input type="file" accept=".xlsx, .xls, .csv" onChange={handleFileSelect} style={{ display: 'none' }} />
+                </label>
+
+                {/* Excel Export Button */}
                 <button
                   onClick={handleExportPaymentsExcel}
                   style={{ background: '#0d6e4c', color: '#fff', border: 'none', padding: '10px 18px', borderRadius: '8px', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}
@@ -702,6 +763,60 @@ export default function FinancialDashboardPage() {
         )}
 
       </main>
+
+      {/* MODAL: IMPORT EXCEL */}
+      {showImportExcelModal && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem' }}>
+          <div style={{ background: '#fff', borderRadius: '14px', maxWidth: '640px', width: '100%', padding: '1.75rem', boxShadow: '0 10px 30px rgba(0,0,0,0.2)', maxHeight: '90vh', overflowY: 'auto' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#084d36', fontWeight: '800', marginBottom: '0.5rem' }}>
+              📥 এক্সেল ডাটা প্রিভিউ ও ইমপোর্ট
+            </h3>
+            <p style={{ fontSize: '0.88rem', color: '#555', marginBottom: '1rem' }}>
+              আপলোডকৃত এক্সেল ফাইলে <strong>{importedExcelData.length}</strong> টি রেকর্ড পাওয়া গেছে।
+            </p>
+
+            {/* PREVIEW TABLE */}
+            <div style={{ border: '1px solid #eee', borderRadius: '8px', overflow: 'hidden', marginBottom: '1rem', maxHeight: '250px', overflowY: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
+                <thead>
+                  <tr style={{ background: '#0d6e4c', color: '#fff' }}>
+                    <th style={{ padding: '8px' }}>Member</th>
+                    <th style={{ padding: '8px' }}>Status</th>
+                    <th style={{ padding: '8px' }}>Date</th>
+                    <th style={{ padding: '8px' }}>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {importedExcelData.slice(0, 10).map((row, i) => (
+                    <tr key={i} style={{ borderBottom: '1px solid #eee' }}>
+                      <td style={{ padding: '8px' }}>{row['Member Name'] || row['name'] || row['Member'] || 'N/A'}</td>
+                      <td style={{ padding: '8px' }}>{row['Payment Status'] || row['status'] || 'PAID'}</td>
+                      <td style={{ padding: '8px' }}>{row['Payment Date'] || row['date'] || 'N/A'}</td>
+                      <td style={{ padding: '8px' }}>{row['Total Amount Paid (BDT)'] || row['amountPaid'] || 'Default'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button 
+                onClick={handleConfirmImport} 
+                disabled={isImporting}
+                style={{ flex: 1, padding: '12px', background: '#27ae60', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '700', cursor: 'pointer' }}
+              >
+                {isImporting ? 'ইমপোর্ট হচ্ছে...' : 'ইমপোর্ট নিশ্চিত করুন (Import Now)'}
+              </button>
+              <button 
+                onClick={() => setShowImportExcelModal(false)} 
+                style={{ padding: '12px 18px', background: '#ccc', color: '#333', border: 'none', borderRadius: '8px', fontWeight: '600', cursor: 'pointer' }}
+              >
+                বাতিল (Cancel)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* MODAL: RECORD PAYMENT */}
       {showPaymentModal && selectedMemberPayment && (
