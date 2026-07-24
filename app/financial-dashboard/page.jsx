@@ -478,6 +478,9 @@ export default function FinancialDashboardPage() {
                   onChange={e => setSelectedYear(Number(e.target.value))}
                   style={{ padding: '8px 12px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '0.9rem', fontWeight: '600' }}
                 >
+                  <option value={2021}>2021</option>
+                  <option value={2022}>2022</option>
+                  <option value={2023}>2023</option>
                   <option value={2024}>2024</option>
                   <option value={2025}>2025</option>
                   <option value={2026}>2026</option>

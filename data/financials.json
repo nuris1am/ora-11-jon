@@ -44,13 +44,13 @@
       "memberId": 4,
       "year": 2026,
       "month": 7,
-      "amountPaid": 0,
-      "paymentDate": null,
-      "status": "UNPAID",
+      "amountPaid": 2100,
+      "paymentDate": "2026-07-24",
+      "status": "PAID",
       "penaltyApplied": true,
       "penaltyAmount": 100,
-      "unpaidConsecutiveMonths": 1,
-      "isAccountFrozen": false
+      "isAccountFrozen": false,
+      "reopeningFee": 0
     },
     {
       "id": "PAY-2026-07-5",
@@ -110,13 +110,13 @@
       "memberId": 9,
       "year": 2026,
       "month": 7,
-      "amountPaid": 0,
-      "paymentDate": null,
-      "status": "UNPAID",
+      "amountPaid": 1050,
+      "paymentDate": "2026-07-24",
+      "status": "PAID",
       "penaltyApplied": true,
       "penaltyAmount": 50,
-      "unpaidConsecutiveMonths": 1,
-      "isAccountFrozen": false
+      "isAccountFrozen": false,
+      "reopeningFee": 0
     },
     {
       "id": "PAY-2026-07-10",
