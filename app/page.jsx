@@ -24,8 +24,8 @@ const pageMarkup = `
   </ul>
 
   <div class="nav-actions">
-    <a href="/financial-dashboard" class="btn-nav btn-nav-outline" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">লগইন</a>
-    <button class="btn-nav btn-nav-gold">যোগ দিন</button>
+    <a href="/financial-dashboard" onclick="window.location.href='/financial-dashboard'; return false;" class="btn-nav btn-nav-outline" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; cursor:pointer;">লগইন</a>
+    <button class="btn-nav btn-nav-gold" onclick="window.location.href='/financial-dashboard'">যোগ দিন</button>
   </div>
 
   <div class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="মোবাইল মেনু" role="button" tabindex="0">
@@ -40,7 +40,7 @@ const pageMarkup = `
   <a href="#services" onclick="toggleMobile()">🌿 সেবা</a>
   <a href="#members" onclick="toggleMobile()">👥 সদস্য</a>
   <a href="#contact" onclick="toggleMobile()">📞 যোগাযোগ</a>
-  <a href="/financial-dashboard" onclick="toggleMobile()">🔐 লগইন / ফাইন্যান্স পোর্টাল</a>
+  <a href="/financial-dashboard" onclick="toggleMobile(); window.location.href='/financial-dashboard'; return false;">🔐 লগইন / ফাইন্যান্স পোর্টাল</a>
 </div>
 
 <section class="hero" id="home">
